@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load social_share %}
+{% block main %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+   
+    
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'post-create' %}"><i class="fa fa-plus-square-o" aria-hidden="true"></i>Posts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'users_list' %}">Add Friends</a>
+          </li>
+    
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Settings
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'friend_list' %}">Friends</a>
+              <a class="dropdown-item" href="{% url 'my_profile' user.profile.slug %}">My Profile</a>
+              <a class="dropdown-item" href="{% url 'user-posts' user.username  %}">My post</a>
+              <a class="dropdown-item" href="  {% url 'password_change' %}">Change Password</a>
+              <a class="dropdown-item" href="{% url 'logout' %}">Sign out</a>
+            
+            </div>
+          </li>
+         <p style='margin-top:5px;'>Hii, {{user.username}}</p>
+        </ul>
+        
+        <br>
+        <form class="form-inline my-2 my-lg-0" action="{% url 'search_users' %}" method="get">
+       <input name="q"   class="form-control mr-sm-2" type="text" placeholder="Search users..">
+        <br>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav> 
+
+ 	<div class="container">
+
+	    <div class="row">
+
+	      <div class="col-md-8">
+	        {% for post in posts %}
+	        <div class="card card-signin my-5">
+	          <div class="card-body">
+	          	<a href="{{ post.user_name.profile.get_absolute_url }}"><img src="{{user.profile.image.url }}" class="rounded-circle" width="30" height="30" alt=""></a>
+	          	<a class="text-dark" href="{{ post.user_name.profile.get_absolute_url }}"><b>{{ post.user_name }}</b></a>
+	          	<br><small class="text-muted">Posted on {{ post.date_posted }}</small>
+	          	<br><br>
+	            <p class="card-text text-dark">{{ post.description }}</p>
+            </div>
+            <a href="{% url 'post-detail' post.id %}">
+            {% if post.pic %}
+           <img class="card-img-top" src="{{ post.pic.url }}" alt="">
+            {% endif %}
+            {% if post.video %}
+            <video  class="embed-responsive embed-responsive-16by9" controls="controls" >
+              <source src="{{post.video.url}}" type="video/mp4" />
+            </video>
+            {% endif %}
+        
+            </a>
+	      
+            <div class="card-footer">
+              {% if request.user in post.likes.all %}
+              <a href="#" id="change{{post.id}}"  class="like_button text-danger" data="{{ post.id }}"><i class="fa fa-heart fa-lg" ></i></a><span class="" id="post_id{{post.id}}">{{ post.total_likes }} </span>
+              {% else %}
+              <a href="#" id="change{{post.id}}" class="like_button text-secondary" data="{{ post.id }}"><i class="fa fa-heart fa-lg" ></i></a><span id="post_id{{post.id}}" class="text-secondary">{{ post.total_likes }} </span>
+        
+              {% endif %}
+
+              
+              <div class="dropdown">
+              <button class="dropbtn">Share</button>
+              <div class="dropdown-content">
+                {% post_to_whatsapp post.get_absolute_url %}
+                {% post_to_facebook post.get_absolute_url %}
+                {% post_to_twitter post.get_absolute_url %}
+              </div>
+              </div>
+         
+	          	<a class="btn btn-outline-info" href="{% url 'post-detail' post.id %}">Comments | {{ post.details.count }}</a>
+	          </div>
+	        </div>
+	        {% endfor %}
+	  	   </div>
+	    </div>
+  </div>
+  
+
+
+{% endblock %}
+

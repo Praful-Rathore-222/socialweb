@@ -1,0 +1,20 @@
+{% extends  'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+<div class="form-group" >
+
+  <h1 class="ml9">
+    <span class="text-wrapper" style="margin-left: 350px; margin-top:5px;">
+    <span class="letters">welcome to socialweb</span>
+    </span>
+  </h1>
+
+  <div class="container container-small">
+    <button  type="button"  class="btn btn-primary btn-block" ><a href="{% url 'login' %}">Login here!</a></button>
+              <center>or</center>
+              <hr style="color:lightblue;">
+              <button  type="button"  class="btn btn-primary btn-block" ><a href="{% url 'signup' %}">signup</a></button> 
+</div>
+</div>
+{% endblock %}

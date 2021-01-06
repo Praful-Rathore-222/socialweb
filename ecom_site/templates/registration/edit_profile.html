@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% load crispy_forms_tags %}
+
+{% block main %}
+<a href="{% url 'home' %}" class= 'btn btn-primary' style="margin-left: 20px; margin-top:10px;">Back</a>
+<div class="form-group" >
+    <div class="container container-small">
+        <h4><b><center>Profile</center></b></h4>
+    <form method="post"  enctype="mutlipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+  
+  
+        <button type="submit" class="btn btn-primary btn-block">Update</button>
+        <br><br>
+   
+    </form>
+{% endblock %}
+
+
