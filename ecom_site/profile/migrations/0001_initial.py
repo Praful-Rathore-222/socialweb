@@ -15,20 +15,41 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Profile',
+            name="Profile",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_name', models.CharField(max_length=200)),
-                ('last_name', models.CharField(max_length=200)),
-                ('bio', models.TextField(default='no bio', max_length=200)),
-                ('email', models.EmailField(blank=True, max_length=200)),
-                ('country', models.CharField(blank=True, max_length=200)),
-                ('image', models.ImageField( upload_to='images/')),
-                ('slug', models.SlugField(blank=True, unique=True)),
-                ('updated', models.DateTimeField(auto_now=True)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('friends', models.ManyToManyField(blank=True, related_name='friendlist', to=settings.AUTH_USER_MODEL)),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("first_name", models.CharField(max_length=200)),
+                ("last_name", models.CharField(max_length=200)),
+                ("bio", models.TextField(default="no bio", max_length=200)),
+                ("email", models.EmailField(blank=True, max_length=200)),
+                ("country", models.CharField(blank=True, max_length=200)),
+                ("image", models.ImageField(upload_to="images/")),
+                ("slug", models.SlugField(blank=True, unique=True)),
+                ("updated", models.DateTimeField(auto_now=True)),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                (
+                    "friends",
+                    models.ManyToManyField(
+                        blank=True,
+                        related_name="friendlist",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

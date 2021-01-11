@@ -8,16 +8,18 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('posts', '0006_post_video'),
+        ("posts", "0006_post_video"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='post',
-            name='likes',
-            field=models.ManyToManyField(related_name='likes', to=settings.AUTH_USER_MODEL),
+            model_name="post",
+            name="likes",
+            field=models.ManyToManyField(
+                related_name="likes", to=settings.AUTH_USER_MODEL
+            ),
         ),
         migrations.DeleteModel(
-            name='Like',
+            name="Like",
         ),
     ]

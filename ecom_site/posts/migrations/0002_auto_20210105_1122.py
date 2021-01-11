@@ -9,18 +9,24 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('posts', '0001_initial'),
+        ("posts", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='like',
-            name='post',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='posts.post'),
+            model_name="like",
+            name="post",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to="posts.post"
+            ),
         ),
         migrations.AlterField(
-            model_name='like',
-            name='user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='linkingUser', to=settings.AUTH_USER_MODEL),
+            model_name="like",
+            name="user",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="linkingUser",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]
