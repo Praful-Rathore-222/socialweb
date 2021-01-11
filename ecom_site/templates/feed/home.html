@@ -3,7 +3,7 @@
 {% load social_share %}
 {% block main %}
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg" style="background-image: linear-gradient(to top, #40ee75, #00e199, #00d3b2, #00c2bf, #1cb0be);">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -54,7 +54,14 @@
 	        {% for post in posts %}
 	        <div class="card card-signin my-5">
 	          <div class="card-body">
-	          	<a href="{{ post.user_name.profile.get_absolute_url }}"><img src="{{user.profile.image.url }}" class="rounded-circle" width="30" height="30" alt=""></a>
+	          	  	<a href="{{ post.user_name.profile.get_absolute_url }}">
+                {% if post.profile.image %}
+                <img src="{{post.profile.image.url }}" class="rounded-circle" width="30" height="30" alt="">
+                {% else %}
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBXqRKXezHfKsAvXX2HOz0QO_5dvdAj5s0Bg&usqp=CAU"  class="rounded-circle" width="30" height="30" alt="">
+              
+        {% endif %}
+          </a>
 	          	<a class="text-dark" href="{{ post.user_name.profile.get_absolute_url }}"><b>{{ post.user_name }}</b></a>
 	          	<br><small class="text-muted">Posted on {{ post.date_posted }}</small>
 	          	<br><br>
