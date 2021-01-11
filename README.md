@@ -102,7 +102,8 @@ I have used in my application,
 
 ```
 # Running Locally
-First, clone the repository to your local machine:
+
+Firstly, create virtual environment and create a django project then clone the repository to your local machine:
 
 ```
 git clone https://github.com/Praful-Rathore-222/socailweb.git
