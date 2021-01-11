@@ -16,10 +16,10 @@ from .views import (
     Friendlist,
     SendRequest,
     CancelRequest,
-)    
+)
 
 urlpatterns = [
-path(
+    path(
         "profile/<int:pk>/",
         ProfileView.as_view(template_name="registration/edit_profile.html"),
         name="profile",
