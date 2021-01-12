@@ -8,7 +8,7 @@ This application is built for developing a social network with people. In this a
 3) Users can search for posts by their username.
 4) Without authentication, users can view the posts but cannot like or comment.
 5) Registeration system is complete with password reset option also available to users.
-6) Users can edit their profile including profile pic and a short bio about them.
+6) Users can edit their profile including profile pic, first name , last name, email, country and a short bio about them.
 7) Users can view profile of others users and can send them friend requests.
 8) Users can send friend request, cancel requests, accept requests, reject requests or even unfriend their friends.
 
