@@ -54,13 +54,8 @@
 	        {% for post in posts %}
 	        <div class="card card-signin my-5">
 	          <div class="card-body">
-	          	  	<a href="{{ post.user_name.profile.get_absolute_url }}">
-                {% if post.profile.image %}
-                <img src="{{post.profile.image.url }}" class="rounded-circle" width="30" height="30" alt="">
-                {% else %}
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBXqRKXezHfKsAvXX2HOz0QO_5dvdAj5s0Bg&usqp=CAU"  class="rounded-circle" width="30" height="30" alt="">
-              
-        {% endif %}
+	          	  	<a href="{{ post.user_name.profile.get_absolute_url }}"> <img src="{{post.user_name.profile.image.url }}" class="rounded-circle" width="30" height="30" alt="">
+
           </a>
 	          	<a class="text-dark" href="{{ post.user_name.profile.get_absolute_url }}"><b>{{ post.user_name }}</b></a>
 	          	<br><small class="text-muted">Posted on {{ post.date_posted }}</small>
