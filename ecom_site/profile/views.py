@@ -72,14 +72,15 @@ class Userlist(LoginRequiredMixin, View):
 
 
 class Friendlist(ListView):
-    User = Profile
-    context_object_name = "friends"
-    success_url = reverse_lazy("home")
-
-    def get(self, request):
-        p = self.request.user.profile
+    def get (self, request):
+        p = request.user.profile
         friends = p.friends.all()
-        return render(request, "registration/friend_list.html")
+        context={
+            'friends': friends
+        }
+        return render(request, "registration/friend_list.html", context)
+
+
 
 
 class SendRequest(LoginRequiredMixin, View):
@@ -109,8 +110,8 @@ class AcceptRequest(LoginRequiredMixin, View):
         ).first()
         user1 = frequest.to_user
         user2 = from_user
-        user1.profile.friends.add(request.POST, instance=self.request.user2.profile)
-        user2.profile.friends.add(request.POST, instance=self.request.user1.profile)
+        user1.profile.friends.add(from_user)
+        user2.profile.friends.add(self.request.user)
         if FriendRequest.objects.filter(
             from_user=request.user, to_user=from_user
         ).first():
@@ -134,11 +135,13 @@ class DeleteRequest(LoginRequiredMixin, View):
 
 class DeleteFriend(LoginRequiredMixin, View):
     def get(self, request, id):
-        user_profile = self.request.user.profile
-        friend_profile = get_object_or_404(Profile, id=id)
-        user_profile.friends.remove(friend_profile)
-        friend_profile.friends.remove(user_profile)
-        return HttpResponseRedirect("/users/{}".format(friend_profile.slug))
+        user = self.request.user
+        friend = get_object_or_404(User, id=id)
+        user.profile.friends.remove(friend)
+        friend.profile.friends.remove(user)
+        return HttpResponseRedirect("/users/{}".format(friend.profile.slug))
+
+
 
 
 class Profile_View(LoginRequiredMixin, View):
@@ -246,11 +249,3 @@ class SearchView(ListView):
             object_list = User.objects.filter(username__icontains=query)
             return object_list
 
-
-def display_profile_images(request):
-
-    if request.method == "GET":
-
-        # getting all the objects of hotel.
-        Profiles = Profile.objects.all()
-        return render((request, "home.html", {"profile_images": Profiles}))
