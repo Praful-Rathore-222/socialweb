@@ -152,7 +152,7 @@ class DeleteFriend(LoginRequiredMixin, View):
         user.profile.friends.remove(friend)
         friend.profile.friends.remove(user)
         return HttpResponseRedirect("/users/{}".format(friend.profile.slug))
-<<<<<<< HEAD
+<<<<<<<
 =======
 
 

@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% load crispy_forms_tags %}
 
 {% block main %}
-<a href="{% url 'home' %}" class= 'btn btn-success' style="margin-left: 20px; margin-top:10px;">Back</a>
+<a href="{% url 'home' %}" class='btn btn-success' style="margin-left: 20px; margin-top:10px;">Back</a>
 <div class="container">
   <div class="row">
     <div class="col-md-8">
@@ -9,32 +9,16 @@
       <div class="card card-signin my-5">
         <div class="card-body">
           {% for user_p in users %}
-          <a href="{{ request.user.profile.get_absolute_url }}"
-            ><img
-              src="{{ request.user.profile.image.url }}"
-              class="rounded mr-2"
-              width="40"
-              height="40"
-              alt=""
-          /></a>
-          <a class="text-dark" href="{{ user_p.get_absolute_url }}"
-            ><b>{{ user_p }}</b></a
-          >
+          <a href="{{ request.user.profile.get_absolute_url }}"><img src="{{ request.user.profile.image.url }}"
+              class="rounded mr-2" width="40" height="40" alt="" /></a>
+          <a class="text-dark" href="{{ user_p.get_absolute_url }}"><b>{{ user_p }}</b></a>
           {% if not user_p.user in sent %}
           <small class="float-right">
-            <a
-              class="btn btn-primary mr-2"
-              href="{% url 'send_friend_request' user_p.id %}"
-              >Add Friend</a
-            >
+            <a class="btn btn-primary mr-2" href="{% url 'send_friend_request' user_p.id %}">Add Friend</a>
           </small>
           {% else %}
           <small class="float-right">
-            <a
-              class="btn btn-warning mr-2"
-              href="{% url 'cancel_friend_request' user_p.id %}"
-              >Cancel Request</a
-            >
+            <a class="btn btn-warning mr-2" href="{% url 'cancel_friend_request' user_p.id %}">Cancel Request</a>
           </small>
           {% endif %}
           <br /><br />
@@ -47,12 +31,8 @@
     </div>
     <div class="col-md-4">
       <div class="card card-signin my-5">
-        <a href="{{ request.user.profile.get_absolute_url }}"
-          ><img
-            class="card-img-top"
-            src="{{ request.user.profile.image.url }}"
-            alt=""
-        /></a>
+        <a href="{{ request.user.profile.get_absolute_url }}"><img class="card-img-top"
+            src="{{ request.user.profile.image.url }}" alt="" /></a>
         <div class="card-body">
           <h5 class="card-title text-center">{{ request.user }}</h5>
           <h6 class="text-center">
