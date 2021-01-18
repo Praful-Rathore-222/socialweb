@@ -72,23 +72,11 @@ class Userlist(LoginRequiredMixin, View):
 
 
 class Friendlist(ListView):
-<<<<<<< HEAD
     def get(self, request):
         p = request.user.profile
         friends = p.friends.all()
         context = {"friends": friends}
         return render(request, "registration/friend_list.html", context)
-=======
-    def get (self, request):
-        p = request.user.profile
-        friends = p.friends.all()
-        context={
-            'friends': friends
-        }
-        return render(request, "registration/friend_list.html", context)
-
-
->>>>>>> da5a722df9e7d65b809bbdac668dcc14dae16615
 
 
 class SendRequest(LoginRequiredMixin, View):
@@ -120,10 +108,6 @@ class AcceptRequest(LoginRequiredMixin, View):
         user2 = from_user
         user1.profile.friends.add(from_user)
         user2.profile.friends.add(self.request.user)
-<<<<<<< HEAD
-
-=======
->>>>>>> da5a722df9e7d65b809bbdac668dcc14dae16615
         if FriendRequest.objects.filter(
             from_user=request.user, to_user=from_user
         ).first():
@@ -152,11 +136,6 @@ class DeleteFriend(LoginRequiredMixin, View):
         user.profile.friends.remove(friend)
         friend.profile.friends.remove(user)
         return HttpResponseRedirect("/users/{}".format(friend.profile.slug))
-<<<<<<<
-=======
-
-
->>>>>>> da5a722df9e7d65b809bbdac668dcc14dae16615
 
 
 class Profile_View(LoginRequiredMixin, View):
@@ -263,4 +242,3 @@ class SearchView(ListView):
         if query:
             object_list = User.objects.filter(username__icontains=query)
             return object_list
-
