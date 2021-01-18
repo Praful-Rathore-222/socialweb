@@ -1,186 +1,199 @@
- <!-- {% load static %}  -->
+<!-- {% load static %}  -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.2/cosmo/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0" nonce="xu1ZqjEU"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="Enter your description here" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.2/cosmo/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0"
+    nonce="xu1ZqjEU"></script>
 
-<title>Title</title>
-<style>
-    .container{
-        margin-top:70px;
+  <title>Title</title>
+  <style>
+    .container {
+      margin-top: 70px;
     }
+
     @media (min-width: 768px) {
-    .container-small {
+      .container-small {
         width: 300px;
-    }
-    .container-large {
+      }
+
+      .container-large {
         width: 970px;
-    } 
-}
-.ml9 {
-  position: relative;
-  font-weight: 200;
-  font-size: 4em;
-}
+      }
+    }
 
-.ml9 .text-wrapper {
-  position: relative;
-  display: inline-block;
-  padding-top: 0.2em;
-  padding-right: 0.05em;
-  padding-bottom: 0.1em;
-  overflow: hidden;
-}
+    .ml9 {
+      position: relative;
+      font-weight: 200;
+      font-size: 4em;
+    }
 
-.ml9 .letter {
-  transform-origin: 50% 100%;
-  display: inline-block;
-  line-height: 1em;
-}
+    .ml9 .text-wrapper {
+      position: relative;
+      display: inline-block;
+      padding-top: 0.2em;
+      padding-right: 0.05em;
+      padding-bottom: 0.1em;
+      overflow: hidden;
+    }
+
+    .ml9 .letter {
+      transform-origin: 50% 100%;
+      display: inline-block;
+      line-height: 1em;
+    }
 
 
 
-.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-}
+    .example input[type=text] {
+      padding: 10px;
+      font-size: 17px;
+      border: 1px solid grey;
+      float: left;
+      width: 80%;
+      background: #f1f1f1;
+    }
 
-.example button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: #2196F3;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none;
-  cursor: pointer;
-}
+    .example button {
+      float: left;
+      width: 20%;
+      padding: 10px;
+      background: #2196F3;
+      color: white;
+      font-size: 17px;
+      border: 1px solid grey;
+      border-left: none;
+      cursor: pointer;
+    }
 
-.example button:hover {
-  background: #0b7dda;
-}
+    .example button:hover {
+      background: #0b7dda;
+    }
 
-.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-/* Dropdown Button */
-.dropbtn {
-  background-color:#3815b6;
-  color: white;
-  padding: 10px;
-  font-size: 10px;
-  border: none;
-}
+    .example::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
 
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+    /* Dropdown Button */
+    .dropbtn {
+      background-color: #3815b6;
+      color: white;
+      padding: 10px;
+      font-size: 10px;
+      border: none;
+    }
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #a75c90;}
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
 
-</style>
-    
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {
+      background-color: #a75c90;
+    }
+  </style>
+
 </head>
+
 <body>
-{% block main %}
-{% endblock %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  {% block main %}
+  {% endblock %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
-<script >
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>'undefined' === typeof _trfq || (window._trfq = []); 'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({ 'tccl.baseHost': 'secureserver.net' }), _trfd.push({ 'ap': 'cpsh' }, { 'server': 'p3plcpnl0769' }) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>
+  <script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
+  <script>
     var textWrapper = document.querySelector('.ml9 .letters');
-textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
-anime.timeline({loop: true})
-  .add({
-    targets: '.ml9 .letter',
-    scale: [0, 1],
-    duration: 1500,
-    elasticity: 600,
-    delay: (el, i) => 45 * (i+1)
-  }).add({
-    targets: '.ml9',
-    opacity: 0,
-    duration: 1000,
-    easing: "easeOutExpo",
-    delay: 1000
-  });
-</script>
-<script>
-   $(document).ready(function(){
-  $('.like_button').click(function(event){
-    event.preventDefault();
-    var post_id = $(this).attr('data');
-    $.ajax(
-    {
-        type:"GET",
-        url: "/like/",
-        data:{
+    anime.timeline({ loop: true })
+      .add({
+        targets: '.ml9 .letter',
+        scale: [0, 1],
+        duration: 1500,
+        elasticity: 600,
+        delay: (el, i) => 45 * (i + 1)
+      }).add({
+        targets: '.ml9',
+        opacity: 0,
+        duration: 1000,
+        easing: "easeOutExpo",
+        delay: 1000
+      });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('.like_button').click(function (event) {
+        event.preventDefault();
+        var post_id = $(this).attr('data');
+        $.ajax(
+          {
+            type: "GET",
+            url: "/like/",
+            data: {
               'post_id': post_id
-        },
-        success: function( data ) 
-        {
-            if(data['is_liked']==true){
-            $('#change'+post_id).removeClass('text-secondary');
-            $('#change'+post_id).addClass('text-danger');  
-            }
-            else{
-              $('#change'+post_id).removeClass('text-primary');
-              $('#change'+post_id).addClass('text-danger');
-            }
-            
+            },
+            success: function (data) {
+              if (data['is_liked'] == true) {
+                $('#change' + post_id).removeClass('text-secondary');
+                $('#change' + post_id).addClass('text-danger');
+              }
+              else {
+                $('#change' + post_id).removeClass('text-primary');
+                $('#change' + post_id).addClass('text-danger');
+              }
 
-            $('#post_id'+post_id).text(data['total_likes']);
 
-        }
-     });
-  });
-})
-</script>
+              $('#post_id' + post_id).text(data['total_likes']);
+
+            }
+          });
+      });
+    })
+  </script>
 </body>
+
 </html>

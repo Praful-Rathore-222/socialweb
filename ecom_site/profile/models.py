@@ -29,8 +29,9 @@ class Profile(models.Model):
             to_slug = str(self.user)
         self.slug = to_slug
         super().save(*args, **kwargs)
+
     def get_absolute_url(self):
-        return "/users/{}".format(self.slug)    
+        return "/users/{}".format(self.slug)
 
 
 class FriendRequest(models.Model):

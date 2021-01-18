@@ -1,19 +1,21 @@
-{% extends  'base.html' %}
+{% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
 {% block main %}
-<div class="form-group" >
+<div class="form-group">
     <div class="container container-small">
-<h4><b><center>Sign Up your account</center></b></h4>
+        <h4><b>
+                <center>Sign Up your account</center>
+            </b></h4>
 
-<form method="post">
-    {% csrf_token %}
-    <input type="hidden" name="next" value="{{ next }}">
-    {{ form|crispy }}
-    <button type="submit" class="btn btn-primary btn-block">Sumbit</button>
-</form>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary btn-block">Sumbit</button>
+        </form>
 
-</div>
+    </div>
 </div>
 
 {% endblock %}

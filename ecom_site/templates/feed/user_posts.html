@@ -2,45 +2,53 @@
 {% load crispy_forms_tags %}
 
 {% block main %}
-<a href="{% url 'home' %}" class= 'btn btn-primary' style="margin-left: 20px; margin-top:10px;">Back</a>
- 	<div class="container">
-	    <div class="row">
-	      <div class="col-md-8">
-	        {% for post in posts %}
-	        <div class="card card-signin my-5">
-	          <div class="card-body">
-	          	<a href="{{ post.user_name.profile.get_absolute_url }}"><img src="{{ post.user_name.profile.image.url }}" class="rounded-circle" width="30" height="30" alt=""></a>
-	          	<a class="text-dark" href="{{ post.user_name.profile.get_absolute_url }}"><b>{{ post.user_name }}</b></a>
-	          	<br><small class="text-muted">Posted on {{ post.date_posted }}</small>
-	          	<br><br>
-	            <p class="card-text text-dark">{{ post.description }}</p>
-	          </div>
-			  <a href="{% url 'post-detail' post.id %}">
-				{% if post.pic %}
-			   <img class="card-img-top" src="{{ post.pic.url }}" alt="">
-				{% endif %}
-				{% if post.video %}
-				<video  class="embed-responsive embed-responsive-16by9" controls="controls" >
-				  <source src="{{post.video.url}}" type="video/mp4" />
-				</video>
-				{% endif %}
-			
+<a href="{% url 'home' %}" class='btn btn-primary' style="margin-left: 20px; margin-top:10px;">Back</a>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			{% for post in posts %}
+			<div class="card card-signin my-5">
+				<div class="card-body">
+					<a href="{{ post.user_name.profile.get_absolute_url }}"><img
+							src="{{ post.user_name.profile.image.url }}" class="rounded-circle" width="30" height="30"
+							alt=""></a>
+					<a class="text-dark" href="{{ post.user_name.profile.get_absolute_url }}"><b>{{ post.user_name
+							}}</b></a>
+					<br><small class="text-muted">Posted on {{ post.date_posted }}</small>
+					<br><br>
+					<p class="card-text text-dark">{{ post.description }}</p>
+				</div>
+				<a href="{% url 'post-detail' post.id %}">
+					{% if post.pic %}
+					<img class="card-img-top" src="{{ post.pic.url }}" alt="">
+					{% endif %}
+					{% if post.video %}
+					<video class="embed-responsive embed-responsive-16by9" controls="controls">
+						<source src="{{post.video.url}}" type="video/mp4" />
+					</video>
+					{% endif %}
+
 				</a>
-	      
-	          <div class="card-footer">
-				{% if request.user in post.likes.all %}
-				<a href="#" id="change{{post.id}}"  class="like_button text-danger" data="{{ post.id }}"><i class="fa fa-heart fa-lg" ></i></a><span class="" id="post_id{{post.id}}">{{ post.total_likes }} </span>
-				{% else %}
-				<a href="#" id="change{{post.id}}" class="like_button text-secondary" data="{{ post.id }}"><i class="fa fa-heart fa-lg" ></i></a><span id="post_id{{post.id}}" class="text-secondary">{{ post.total_likes }} </span>
-		  
-				{% endif %} 
-	          	<a class="btn btn-outline-info" href="{% url 'post-detail' post.id %}">Comments | {{ post.details.count }}</a>
-	          </div>
-	        </div>
-	        {% endfor %}
-	  	   </div>
-	    </div>
+
+				<div class="card-footer">
+					{% if request.user in post.likes.all %}
+					<a href="#" id="change{{post.id}}" class="like_button text-danger" data="{{ post.id }}"><i
+							class="fa fa-heart fa-lg"></i></a><span class="" id="post_id{{post.id}}">{{ post.total_likes
+						}} </span>
+					{% else %}
+					<a href="#" id="change{{post.id}}" class="like_button text-secondary" data="{{ post.id }}"><i
+							class="fa fa-heart fa-lg"></i></a><span id="post_id{{post.id}}" class="text-secondary">{{
+						post.total_likes }} </span>
+
+					{% endif %}
+					<a class="btn btn-outline-info" href="{% url 'post-detail' post.id %}">Comments | {{
+						post.details.count }}</a>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
 	</div>
+</div>
 
 
 

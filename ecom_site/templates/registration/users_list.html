@@ -9,9 +9,9 @@
       <div class="card card-signin my-5">
         <div class="card-body">
           {% for user_p in users %}
-          <a href="{{ user_p.get_absolute_url }}"
+          <a href="{{ request.user.profile.get_absolute_url }}"
             ><img
-              src="{{ user_p.image.url }}"
+              src="{{ request.user.profile.image.url }}"
               class="rounded mr-2"
               width="40"
               height="40"
